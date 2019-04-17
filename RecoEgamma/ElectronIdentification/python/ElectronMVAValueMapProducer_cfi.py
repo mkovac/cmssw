@@ -7,6 +7,10 @@ from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Spring16_HZZ
     import mvaEleID_Spring16_HZZ_V1_producer_config
 mvaConfigsForEleProducer.append( mvaEleID_Spring16_HZZ_V1_producer_config )
 
+from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Summer16_ID_ISO_cff \
+    import mvaEleID_Summer16_ID_ISO_producer_config
+mvaConfigsForEleProducer.append( mvaEleID_Summer16_ID_ISO_producer_config )
+
 from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Spring16_GeneralPurpose_V1_cff \
     import mvaEleID_Spring16_GeneralPurpose_V1_producer_config
 mvaConfigsForEleProducer.append( mvaEleID_Spring16_GeneralPurpose_V1_producer_config )
