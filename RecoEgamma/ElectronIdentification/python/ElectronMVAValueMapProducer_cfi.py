@@ -23,6 +23,13 @@ from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_noIso
     import mvaEleID_Fall17_noIso_V2_producer_config
 mvaConfigsForEleProducer.append( mvaEleID_Fall17_noIso_V2_producer_config )
 
+
+# HZZ4l Run2 Legacy
+
+from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Summer16_ID_ISO_cff \
+    import mvaEleID_Summer16_ID_ISO_producer_config
+mvaConfigsForEleProducer.append( mvaEleID_Summer16_ID_ISO_producer_config )
+
 from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_iso_V2_cff \
     import mvaEleID_Fall17_iso_V2_producer_config
 mvaConfigsForEleProducer.append( mvaEleID_Fall17_iso_V2_producer_config )
