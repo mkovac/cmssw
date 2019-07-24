@@ -23,24 +23,24 @@ from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_noIso
     import mvaEleID_Fall17_noIso_V2_producer_config
 mvaConfigsForEleProducer.append( mvaEleID_Fall17_noIso_V2_producer_config )
 
+
+# HZZ4l Run2 Legacy
+
+from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Summer16_ID_ISO_cff \
+    import mvaEleID_Summer16_ID_ISO_producer_config
+mvaConfigsForEleProducer.append( mvaEleID_Summer16_ID_ISO_producer_config )
+
 from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Fall17_iso_V2_cff \
     import mvaEleID_Fall17_iso_V2_producer_config
 mvaConfigsForEleProducer.append( mvaEleID_Fall17_iso_V2_producer_config )
 
+from RecoEgamma.ElectronIdentification.Identification.mvaElectronID_Autumn18_ID_ISO_cff \
+    import mvaEleID_Autumn18_ID_ISO_producer_config
+mvaConfigsForEleProducer.append( mvaEleID_Autumn18_ID_ISO_producer_config )
+
+
 # The producer to compute the MVA input variables which are not accessible with the cut parser
-electronMVAVariableHelper = cms.EDProducer('GsfElectronMVAVariableHelper',
-                                             # The module automatically detects AOD vs miniAOD, so we configure both
-                                             # AOD case
-                                             src = cms.InputTag('gedGsfElectrons'),
-                                             vertexCollection = cms.InputTag("offlinePrimaryVertices"),
-                                             beamSpot         = cms.InputTag("offlineBeamSpot"),
-                                             conversions      = cms.InputTag("allConversions"),
-                                             # miniAOD case
-                                             srcMiniAOD              = cms.InputTag('slimmedElectrons',processName=cms.InputTag.skipCurrentProcess()),
-                                             vertexCollectionMiniAOD = cms.InputTag("offlineSlimmedPrimaryVertices"),
-                                             beamSpotMiniAOD         = cms.InputTag("offlineBeamSpot"),
-                                             conversionsMiniAOD      = cms.InputTag("reducedEgamma:reducedConversions"),
-                                             )
+from RecoEgamma.ElectronIdentification.electronMVAVariableHelper_cfi import *
 
 electronMVAValueMapProducer = cms.EDProducer('ElectronMVAValueMapProducer',
                                              # The module automatically detects AOD vs miniAOD, so we configure both
