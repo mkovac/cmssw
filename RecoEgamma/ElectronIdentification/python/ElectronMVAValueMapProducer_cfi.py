@@ -40,7 +40,20 @@ mvaConfigsForEleProducer.append( mvaEleID_Autumn18_ID_ISO_producer_config )
 
 
 # The producer to compute the MVA input variables which are not accessible with the cut parser
-from RecoEgamma.ElectronIdentification.electronMVAVariableHelper_cfi import *
+electronMVAVariableHelper = cms.EDProducer('GsfElectronMVAVariableHelper',
+                                             # The module automatically detects AOD vs miniAOD, so we configure both
+                                             # AOD case
+                                             src = cms.InputTag('gedGsfElectrons'),
+                                             vertexCollection = cms.InputTag("offlinePrimaryVertices"),
+                                             beamSpot         = cms.InputTag("offlineBeamSpot"),
+                                             conversions      = cms.InputTag("allConversions"),
+                                             # miniAOD case
+                                             srcMiniAOD              = cms.InputTag('slimmedElectrons',processName=cms.InputTag.skipCurrentProcess()),
+                                             vertexCollectionMiniAOD = cms.InputTag("offlineSlimmedPrimaryVertices"),
+                                             beamSpotMiniAOD         = cms.InputTag("offlineBeamSpot"),
+                                             conversionsMiniAOD      = cms.InputTag("reducedEgamma:reducedConversions"),
+                                             )
+
 
 electronMVAValueMapProducer = cms.EDProducer('ElectronMVAValueMapProducer',
                                              # The module automatically detects AOD vs miniAOD, so we configure both
